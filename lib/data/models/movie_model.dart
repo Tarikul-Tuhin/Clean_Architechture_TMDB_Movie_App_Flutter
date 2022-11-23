@@ -16,32 +16,24 @@ class MovieModel extends MovieEntity {
   final bool? video;
   final double voteAverage;
   final int? voteCount;
-  final String? name;
-  final String? originalName;
-  final String? firstAirDate;
-  final List<String>? originCountry;
 
-  MovieModel(
-      {this.adult,
-      required this.backdropPath,
-      required this.id,
-      required this.title,
-      this.originalLanguage,
-      this.originalTitle,
-      this.overview,
-      required this.posterPath,
-      this.mediaType,
-      this.genreIds,
-      this.popularity,
-      required this.releaseDate,
-      this.video,
-      required this.voteAverage,
-      this.voteCount,
-      this.name,
-      this.originalName,
-      this.firstAirDate,
-      this.originCountry})
-      : super(
+  MovieModel({
+    this.adult,
+    required this.backdropPath,
+    required this.id,
+    required this.title,
+    this.originalLanguage,
+    this.originalTitle,
+    this.overview,
+    required this.posterPath,
+    this.mediaType,
+    this.genreIds,
+    this.popularity,
+    required this.releaseDate,
+    this.video,
+    required this.voteAverage,
+    this.voteCount,
+  }) : super(
             id: id,
             backdropPath: backdropPath,
             posterPath: posterPath,
@@ -52,25 +44,22 @@ class MovieModel extends MovieEntity {
 
   factory MovieModel.fromJson(Map<String, dynamic> json) {
     return MovieModel(
-        adult: json['adult'],
-        backdropPath: json['backdrop_path'],
-        id: json['id'],
-        title: json['title'],
-        originalLanguage: json['original_language'],
-        originalTitle: json['original_title'],
-        overview: json['overview'],
-        posterPath: json['poster_path'],
-        mediaType: json['media_type'],
-        genreIds: json['genre_ids'].cast<int>(),
-        popularity: json['popularity']?.toDouble() ?? 0.0,
-        releaseDate: json['release_date'],
-        video: json['video'],
-        voteAverage: json['vote_average']?.toDouble() ?? 0.0,
-        voteCount: json['vote_count'],
-        name: json['name'],
-        originalName: json['original_name'],
-        firstAirDate: json['first_air_date'],
-        originCountry: json['origin_country'].cast<String>());
+      adult: json['adult'],
+      backdropPath: json['backdrop_path'],
+      id: json['id'],
+      title: json['title'],
+      originalLanguage: json['original_language'],
+      originalTitle: json['original_title'],
+      overview: json['overview'],
+      posterPath: json['poster_path'],
+      mediaType: json['media_type'],
+      genreIds: json['genre_ids'].cast<int>(),
+      popularity: json['popularity']?.toDouble() ?? 0.0,
+      releaseDate: json['release_date'],
+      video: json['video'],
+      voteAverage: json['vote_average']?.toDouble() ?? 0.0,
+      voteCount: json['vote_count'],
+    );
   }
 
   Map<String, dynamic> toJson() {
@@ -90,10 +79,7 @@ class MovieModel extends MovieEntity {
     data['video'] = this.video;
     data['vote_average'] = this.voteAverage;
     data['vote_count'] = this.voteCount;
-    data['name'] = this.name;
-    data['original_name'] = this.originalName;
-    data['first_air_date'] = this.firstAirDate;
-    data['origin_country'] = this.originCountry;
+
     return data;
   }
 }

@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
-class MovieEntity {
+class MovieEntity extends Equatable {
   final String posterPath;
   final int id;
   final String backdropPath;
